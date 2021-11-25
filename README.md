@@ -1,4 +1,4 @@
-# ALPHA - PROTOTYPE - Docker Operator for creating Galasa ecosystems in Docker
+# ALPHA - PROTOTYPE - Docker Operator for creating Galasa ecosystems in Docker noddy 
 
 ## What is an Galasa ecosystem
 
