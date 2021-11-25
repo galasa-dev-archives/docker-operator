@@ -24,7 +24,7 @@ spec:
     default: ""
   steps:
   - name: gradle-build 
-    image: $(params.dockerRepo)/galasa/galasa-build
+    image: $(params.dockerBuildRepo)/galasa/galasa-build
     command:
           - gradle
           - '--no-daemon'

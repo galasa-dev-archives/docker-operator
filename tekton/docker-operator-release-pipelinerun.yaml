@@ -17,7 +17,7 @@ spec:
   - name: noPush
     value: ""
   pipelineRef:
-    name: operator-build-pipeline
+    name: docker-operator-pipeline
   serviceAccountName: build-bot
   podTemplate:
     nodeSelector:
