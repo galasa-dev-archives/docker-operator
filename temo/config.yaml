@@ -1,0 +1,6 @@
+hostname: 192.168.1.46
+galasaRegistry: docker.galasa.dev
+version: 0.18.0
+engineController:
+  controllerVersion: 0.18.0
+  engineVersion: 0.18.0
