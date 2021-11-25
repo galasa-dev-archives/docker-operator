@@ -1,0 +1,59 @@
+#
+# Copyright contributors to the Galasa project 
+#
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: docker-operator-pipeline
+  namespace: galasa-tekton
+spec:
+  workspaces:
+  - name: git-workspace
+    optional: false
+  params:
+  - name: distBranch
+    type: string
+  - name: refspec
+    type: string
+  - name: noPush
+    type: string
+    default: "--no-push"
+  - name: imageName
+    type: string
+    default: nopushimage:latest
+  - name: isRelease
+    type: string
+    default: "false"
+  tasks:
+  - name: clone-galasa-docker-operator
+    taskRef: 
+      name: git-clone
+    params:
+    - name: url
+      value: https://github.com/galasa-dev/galasa-docker-operator
+    - name: revision
+      value: $(params.distBranch)
+    - name: refspec
+      value: $(params.refspec)
+    - name: depth
+      value: "99999999"
+    - name: subdirectory
+      value: galasa-docker-operator
+    workspaces:
+     - name: output
+       workspace: git-workspace
+  - name: operator-build-tagged-version
+    taskRef:
+      name: operator-build-task
+    runAfter:
+    - clone-galasa-docker-operator
+    params:
+    - name: distBranch
+      value: $(params.distBranch)
+    - name: noPush
+      value: $(params.noPush)
+    - name: imageName
+      value: $(params.imageName)
+    workspaces:
+     - name: git-workspace
+       workspace: git-workspace
