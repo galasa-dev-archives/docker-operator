@@ -1,6 +1,6 @@
 ARG dockerRepository
 
-FROM ${dockerRepository}/galasadev/openjdk:8-jdk
+FROM ${dockerRepository}/common/openjdk:8-jdk
 
 ENV CONFIG=/config.yaml
 
