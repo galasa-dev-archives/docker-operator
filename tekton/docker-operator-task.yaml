@@ -18,13 +18,13 @@ spec:
     type: string
   - name: dockerBuildRepo
     type: string
-    default: nexus.cics-ts.hur.hdclab.intranet.ibm.com:8080
+    default: harbor-cicsk8s.hursley.ibm.com
   - name: noPush
     type: string
     default: ""
   steps:
   - name: gradle-build 
-    image: $(params.dockerBuildRepo)/galasa/galasa-build
+    image: $(params.dockerBuildRepo)/galasadev/galasa-build
     command:
           - gradle
           - '--no-daemon'
@@ -34,7 +34,7 @@ spec:
     workingDir: /workspace/git/galasa-docker-operator/
   - name: docker-build
     workingDir: /workspace/git/galasa-docker-operator/
-    image: $(params.dockerBuildRepo)/library/kaniko-executor:latest
+    image: $(params.dockerBuildRepo)/common/kaniko-project/executor:latest
     env:
     - name: DOCKER_CONFIG
       value: /tekton/home/.docker
