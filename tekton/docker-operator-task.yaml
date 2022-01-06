@@ -4,7 +4,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: docker-operator-task
+  name: docker-operator-build
   namespace: galasa-tekton
 spec:
   workspaces:
