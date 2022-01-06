@@ -1,6 +1,6 @@
 ARG dockerRepository
 
-FROM ${dockerRepository}/dockerhub/openjdk:8-jdk
+FROM ${dockerRepository}/dockerhub/library/openjdk:8-jdk
 
 ENV CONFIG=/config.yaml
 
