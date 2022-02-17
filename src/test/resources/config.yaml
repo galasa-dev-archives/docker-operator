@@ -1,3 +1,6 @@
+#/*
+# * Copyright contributors to the Galasa Project
+# */
 hostname: 192.168.1.87
 galasaRegistry: icr.io/galasadev
 version: 0.20.0
