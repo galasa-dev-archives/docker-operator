@@ -1,8 +1,6 @@
 /*
- * Licensed Materials - Property of IBM
- * 
- * (c) Copyright IBM Corp. 2020-2021.
- */
+* Copyright contributors to the Galasa project 
+*/
 package dev.galasa.docker.operator.model;
 
 import java.net.URI;
@@ -32,7 +30,6 @@ public class Ecosystem {
         this.resources.add(new ResMan(this));
         this.resources.add(new Metrics(this));
         this.resources.add(new EngineController(this));
-        this.resources.add(new Nexus(this));
         this.resources.add(new SimPlatform(this));
     }
 

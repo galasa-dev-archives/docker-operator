@@ -1,8 +1,6 @@
 /*
- * Licensed Materials - Property of IBM
- * 
- * (c) Copyright IBM Corp. 2020-2021.
- */
+* Copyright contributors to the Galasa project 
+*/
 package dev.galasa.docker.operator.model;
 
 import java.io.FileNotFoundException;
@@ -32,7 +30,6 @@ public class SimPlatform extends AbstractContainerResource {
     
     private final Cps cps;
     private final Api api;
-    private final Nexus nexus;
 
     public SimPlatform(Ecosystem ecosystem) {
         super(ecosystem, RESOURCE_NAME);
@@ -42,9 +39,6 @@ public class SimPlatform extends AbstractContainerResource {
         
         this.api = ecosystem.getResource(Api.class);
         this.api.addDependency(this);
-        
-        this.nexus = ecosystem.getResource(Nexus.class);
-        this.nexus.addDependency(this);
     }
 
     @Override
@@ -129,9 +123,9 @@ public class SimPlatform extends AbstractContainerResource {
     private void checkTestStream() throws DockerOperatorException {
 
         String location    = this.api.getTestcatalog() + "/simbank";
-        String obr         = "mvn:dev.galasa/dev.galasa.simbank.obr/" + getEcosystem().getConfiguration().getVersion() + "/obr";
+        String obr         = "mvn:dev.galasa/dev.galasa.simbank.obr/" + getEcosystem().getConfiguration().getSimplatform().getVersion() + "/obr";
         String description = "SimBank Tests";
-        String repo        = "http://" + getEcosystem().getConfiguration().getHostname() + ":" + this.nexus.getPort() + "/repository/maven";
+        String repo        = "https://repo.maven.apache.org/maven2/";
 
         try {
             this.cps.checkCpsProperty("framework.test.stream.SIMBANK.description", description);
