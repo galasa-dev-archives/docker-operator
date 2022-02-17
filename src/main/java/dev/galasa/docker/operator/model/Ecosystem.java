@@ -32,7 +32,6 @@ public class Ecosystem {
         this.resources.add(new ResMan(this));
         this.resources.add(new Metrics(this));
         this.resources.add(new EngineController(this));
-        this.resources.add(new Nexus(this));
         this.resources.add(new SimPlatform(this));
     }
 

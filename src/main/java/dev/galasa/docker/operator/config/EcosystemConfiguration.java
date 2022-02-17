@@ -20,7 +20,6 @@ public class EcosystemConfiguration {
     private MetricsConfiguration     metrics;
     private EngineConfiguration      engineController;
     private SimPlatformConfiguration simplatform;
-    private NexusConfiguration       nexus;
 
     public String getHostname() {
         return this.hostname;
@@ -81,11 +80,6 @@ public class EcosystemConfiguration {
             this.simplatform = new SimPlatformConfiguration();
         }
         this.simplatform.normalise();
-        
-        if (this.nexus == null) {
-            this.nexus = new NexusConfiguration();
-        }
-        this.nexus.normalise();
     }
 
     public String getGalasaRegistry() {
@@ -150,14 +144,6 @@ public class EcosystemConfiguration {
 
     public void setSimplatform(SimPlatformConfiguration simplatform) {
         this.simplatform = simplatform;
-    }
-
-    public NexusConfiguration getNexus() {
-        return nexus;
-    }
-
-    public void setNexus(NexusConfiguration nexus) {
-        this.nexus = nexus;
     }
 
     public void setHostname(String hostname) {
