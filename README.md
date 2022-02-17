@@ -51,17 +51,19 @@ Due to the way the various servers communicate, the ecosystem will need to know 
 Also, as the Docker Operator is being distributed from 0.10.0-SNAPSHOT, an unreleased version of Galasa, certain versions of the Galasa ecosystem servers will need to be provided in the config.yaml.  Please copy the following YAML and create a config.yaml file on your server/workstation and note the full path of the file:-
 
 ```
-hostname: {hostname}
-galasaRegistry: docker.galasa.dev
-version: 0.14.0
+hostname: 192.168.1.87
+galasaRegistry: icr.io/galasadev
+version: 0.20.0
 engineController:
-  controllerVersion: 0.14.0
-  engineVersion: 0.14.0
+  controllerVersion: 0.20.0
+  engineVersion: 0.20.0
+simplatform:
+  version: 0.15.0
 ```
 
 Change the {hostname} to be your hostname.  Note the 2 spaces on the last 2 lines,  they are important in YAML.
 
-Please also check the version numbers. 0.14.0 was the official release at the time of updating these docs.
+Please also check the version numbers. 0.14.0 was the official release at the time of updating these docs. Please not that the release of simbank does not stay in sync with the release of galasa
 
 To deploy the Galasa ecosystem, issue the following Docker command:-
 
